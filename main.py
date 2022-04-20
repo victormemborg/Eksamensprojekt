@@ -1,11 +1,16 @@
 #Importerer libraries 
 import numpy as np
+import os
 from flask import Flask, request, render_template
 import pickle
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "static\data\Leukemia\Billede"
+
+#UPLOAD CONFIG
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 #Loader pickle som der blev dannet i demo.ibynp. Denne bliver tildelt variablen "model"
 model = pickle.load(open("static\data\Risiko.pkl", "rb"))
@@ -45,8 +50,8 @@ def genkender():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
-      f = request.files['filename']
-      f.save(secure_filename(f.filename))
+      f = request.files['filename[]']
+      f.save(os.path.join(app.config['UPLOAD_FOLDER'], "image.png"))
       return 'file uploaded successfully'
 
 if __name__ == "__main__":
