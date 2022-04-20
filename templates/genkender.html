@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Leukæmi | Genkender</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="../static/img/favicon.png">
+  </head>
+  <style>
+    body 
+      {
+        background-image: url('../static/img/baggrund.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+   </style>
+    <body>
+      <section class="box">
+        <h1>Vejledning til brug af model </h1>
+        <h5>1. Vælg den billedefil, der skal analyseres af modellen</h5>
+        <h5>2. Videresend din fil ved brug af knappen</h5>
+        <h5>3. Få dit resultat</h5>
+        <form action = "http://localhost:5000/uploader" method ="POST" enctype = "multipart/form-data">
+          <input type="file" id="myFile" name="filename">
+          <input type="submit"> 
+        </form> 
+      </section>
+    </body>
+</html>
