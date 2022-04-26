@@ -26,6 +26,8 @@ input {
 	opacity: 0.75;
 	padding: 12px;
 	display: inline-block;
+	height: 100%;
+	width: auto;
 }
 
 .footer {
