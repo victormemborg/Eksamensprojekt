@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Lægehuset | Hjem</title>
-    <link rel="stylesheet" href="../static/css/startside.css">
-    <link rel="stylesheet" href="../static/css/buttons.css">
-    <link rel="icon" href="../static/img/favicon.png">
-  </head>
-  <style>
-    body{
-      background-image: url('../static/img/forside.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  </style>
-  <body>
-    <section class="box">
-
-      <h1>Velkommen til Helbredsvejlederen </h1>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lægehuset.dk | Hjem</title>
+	<link href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navlogo">Lægehuset.dk</div>
+    <a href="/" class="ham">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <!-- The nav links part -->
+    <div class="navlinks">
+        <ul>
+            <li><a href="/">Hjem</a></li>
+            <li><a href="/model">Blodprop</a></li>
+            <li><a href="/cancer">Leukæmi</a></li>
+        </ul>
+    </div>
+  </nav>
+  <div class="box2">
+    <div class="content">
+      <h1>Velkommen til Lægehuset.dk</h1>
       <h3>Vælg venligst at anvende vores blodprop eller leukæmi model.</h3>
-      <body>
-        <a href="model">
-          <button href="skema.html" class="spin circle">Beregn Blodprop</button>
-        </a>
-        <a href="cancer">
-          <button href="genkender" class="spin circle">Beregn Leukæmi</button>
-        </a>
-      </body>
-      
-    </section>
-  </body>
-</html>
+      <br>
+      <br>
+      <br>
+      <a href="/model"><button class="button button_colour">Blodprop</button></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="/cancer"><button class="button button_colour">Leukæmi</button></a>
+    </div>
+  </div>  
+</body>
