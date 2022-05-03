@@ -1,14 +1,58 @@
 #Importerer libraries 
 import numpy as np
-from flask import Flask, request, render_template
+import os
+from flask import Flask, request, render_template, redirect, url_for
 import pickle
 from werkzeug.utils import secure_filename
+from keras.models import load_model
+from PIL import Image, ImageOps
 
 app = Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "static\data\Leukemia\Billede"
+
+#UPLOAD CONFIG
+UPLOAD_FOLDER = 'uploads'
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 #Loader pickle som der blev dannet i demo.ibynp. Denne bliver tildelt variablen "model"
 model = pickle.load(open("static\data\Risiko.pkl", "rb"))
+
+#ML funktion
+def ml():
+    #Loader modellen.
+    model = load_model('static\data\Leukemia\keras_model.h5')
+
+    #Opstiller array'et som der skal feedes til keras modellen.
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    
+    #Loader billedet, som brugeren har uploadet
+    image = Image.open('uploads\image.png')
+    
+    #Resizer billedet til 224x224 og beskære det til midten.
+    size = (224, 224)
+    image = ImageOps.fit(image, size, Image.ANTIALIAS)
+
+    #Indsætter billedet i et numpy array.
+    image_array = np.asarray(image)
+
+    #Normaliserer array.
+    normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+    data[0] = normalized_image_array
+
+    #Feeder modellen med dataen.
+    prediction = model.predict(data)
+
+    #variable der skal bruges på frontend siden, samt viser det procentvis.
+    global startfase
+    global udbrud 
+    global prebehandling
+    global probehandling
+    startfase = np.round(prediction[0][0]*100, decimals=2)
+    udbrud = np.round(prediction[0][1]*100, decimals=2)
+    prebehandling = np.round(prediction[0][2]*100, decimals=2)
+    probehandling = np.round(prediction[0][3]*100, decimals=2)
+
+
 
 #Laver et index route, som indlæser "index.html"
 @app.route("/")
@@ -23,8 +67,7 @@ def cancer():
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    int_features = request.form['userinput']
-    #int_features = [int(x) for x in request.form.values()]
+    int_features = [int(x) for x in request.form.values()]
     print(int_features)
     final_features = [np.array(int_features)]
     print(final_features)
@@ -46,9 +89,14 @@ def genkender():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
-      f = request.files['filename']
-      f.save(secure_filename(f.filename))
-      return 'file uploaded successfully'
+      f = request.files['filename[]']
+      f.save(os.path.join(app.config['UPLOAD_FOLDER'], "image.png"))
+      return redirect(url_for('resultat'))
+
+@app.route("/result")
+def resultat():
+    ml()
+    return render_template('resultat.html', start=startfase, udbrud=udbrud, prebe=prebehandling, probe=probehandling)
 
 if __name__ == "__main__":
     app.run(debug=True)
