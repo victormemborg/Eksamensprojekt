@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Dynamic Quiz Project</title>
-		<link type='text/css' rel='stylesheet' href='stylesheet.css'/>
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans"/>
+		<meta charset="UTF-8">
+		<title>Lægehuset.dk | Blodprop</title>
+		<link href="../static/css/style.css" rel="stylesheet">
 	</head>
 	<body>
-		<div id='container'>
-			<div id='title'>
-				<h1>Learning Js Properly: Project #1 - Dynamic Quiz</h1>
+		<!-- nav bar start -->
+		<nav class="navbar">
+			<div class="navlogo">Lægehuset.dk</div>
+			<a href="/" class="ham">
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<!-- The nav links part -->
+			<div class="navlinks">
+				<ul>
+					<li><a href="/">Hjem</a></li>
+					<li><a href="/cancer">Leukæmi</a></li>
+				</ul>
 			</div>
-   			<br/>
-  			<div id='quiz'></div>
-    		<div class='button' id='next'><a href='#'>Next</a></div>
-    		<div class='button' id='prev'><a href='#'>Prev</a></div>
-    		<div class='button' id='start'> <a href='#'>Start Over</a></div>
-			<div style="display: none;">
-				<form action="/predict" name="myForm" id="myForm" method="POST">
-					<input name="userinput" id="userinput" ></input>
-				</form>
+		</nav>
+		<!-- nav bar slut -->
+		<!-- content start-->
+		<div class='box3'>
+			<div id='container'>
+				<div style='text-align: center;'>
+					<h1>Bestem om du er i risikozonen for en blodprop</h1>
+				</div>
+				<div class='box4'>
+					<div id='quiz'></div>
+				</div>
+				<div class='box5'>
+					<button class='button button_colour' id='next'><a href='#'>Næste</a></button>
+					<button class='button button_colour' id='prev'><a href='#'>Tilbage</a></button>
+					<button class='button button_colour' id='start'> <a href='#'>Start Forfra</a></button>
+				</div>
+				<div style="display: none;">
+					<form action="/predict" name="myForm" id="myForm" method="POST">
+						<input name="userinput" id="userinput" ></input>
+					</form>
+				</div>
+				<h1 id="predict_text" style="text-align: center;">{{ prediction_text }}</h1>
 			</div>
-    		<!-- <button class='' id='next'>Next</a></button>
-    		<button class='' id='prev'>Prev</a></button>
-    		<button class='' id='start'> Start Over</a></button> -->
-			<h1 id="predict_text">{{ prediction_text }}</h1>
-    	</div>
-
+		</div>
+		<!-- content slut-->
+		<!-- scipts -->
 		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 		<script type='text/javascript' src='static\js\jsquiz.js'></script>
 	</body>

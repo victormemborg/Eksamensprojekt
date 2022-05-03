@@ -146,3 +146,40 @@ body {
 .button_colour:hover {
 	background-color:#ff0000;
   }
+
+
+/* SKEMA */
+
+.box3{
+	position: absolute;
+	top: 45%;
+	opacity: 95%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 620px;
+	height: 625px;
+	background: rgb(187, 31, 31);
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow: 0 20px 50px rgb(173, 30, 30);
+	border: 3px solid #000000;
+	color: white;
+	padding: 20px;
+}
+
+.box4{
+	border: 3px solid #000000;
+}
+
+.box4 input[type='radio'], label{  
+	position: absolute;
+	left: 48%;
+ }
+
+.box5{
+	display: flex; 
+	justify-content: center;
+	text-align: center;
+}
+
+

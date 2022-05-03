@@ -36,7 +36,7 @@
       
       // If no user selection, progress is stopped
       if (isNaN(selections[questionCounter])) {
-        alert('Please make a selection!');
+        alert('Vælg venligst et svar!');
       } else {
         questionCounter++;
         document.getElementById("predict_text").innerHTML = " ";
@@ -84,10 +84,10 @@
         id: 'question'
       });
       
-      var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+      var header = $('<h2 style="text-align: center;">Question ' + (index + 1) + ':</h2>');
       qElement.append(header);
       
-      var question = $('<p>').append(questions[index].question);
+      var question = $('<p style="text-align: center;">').append(questions[index].question);
       qElement.append(question);
       
       var radioButtons = createRadios(index);
