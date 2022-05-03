@@ -1,58 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Bruh | bruh</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="icon" href="../static/img/favicon.png">
-  </head>
-  <body>
-    <section class="container">
-      <h1>Beregn din chance for hjertesygdomme</h1>
-      <h3>Udfyld felterne forneden og tryk på knappen.</h3>
-      <div class="grid">
-        <div class="box">
-          <form action="{{ url_for('predict')}}" method="post">
-            <select name="Ryger" id="Ryger" required="required">
-              <option value="">Ryger du?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Alkohol" id="Alkohol" required="required">
-              <option value="">Drikker du meget alkohol?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Stroke" id="Stroke" required="required">
-              <option value="">Har du haft en stroke før?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Køn" id="Køn" required="required">
-              <option value="">Køn</option>
-              <option value="0">Kvinde</option>
-              <option value="1">Mand</option>
-            </select>
-            <select name="Aldersgruppe" id="Aldersgruppe" required="required">
-              <option value="">Aldersgruppe (år)</option>
-              <option value="12">80 eller ældre</option>
-              <option value="11">75-79</option>
-              <option value="10">70-74</option>
-              <option value="9">65-69</option>
-              <option value="8">60-64</option>
-              <option value="7">55-59</option>
-              <option value="6">50-54</option>
-              <option value="5">45-49</option>
-              <option value="4">40-44</option>
-              <option value="3">35-39</option>
-              <option value="2">30-34</option>
-              <option value="1">25-29</option>
-              <option value="0">18-24</option>
-            </select>
-            <button type="submit" class="btn">Udregn løn</button>
-          </form>
-          <p>{{ prediction_text }}</p>
-        </div>
-      </div>
-  </body>
+	<head>
+		<title>Dynamic Quiz Project</title>
+		<link type='text/css' rel='stylesheet' href='stylesheet.css'/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open Sans"/>
+	</head>
+	<body>
+		<div id='container'>
+			<div id='title'>
+				<h1>Learning Js Properly: Project #1 - Dynamic Quiz</h1>
+			</div>
+   			<br/>
+  			<div id='quiz'></div>
+    		<div class='button' id='next'><a href='#'>Next</a></div>
+    		<div class='button' id='prev'><a href='#'>Prev</a></div>
+    		<div class='button' id='start'> <a href='#'>Start Over</a></div>
+			<form name ="myForm" method="POST">
+				<var name="userinput" ></var>
+			</form>
+    		<!-- <button class='' id='next'>Next</a></button>
+    		<button class='' id='prev'>Prev</a></button>
+    		<button class='' id='start'> Start Over</a></button> -->
+    	</div>
+
+		<div id="test"><h1>user input</h1></div>
+
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+		<script type='text/javascript' src='jsquiz.js'></script>
+	</body>
 </html>

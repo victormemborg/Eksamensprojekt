@@ -23,7 +23,8 @@ def cancer():
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    int_features = [int(x) for x in request.form.values()]
+    int_features = request.form['userinput']
+    #int_features = [int(x) for x in request.form.values()]
     print(int_features)
     final_features = [np.array(int_features)]
     print(final_features)
