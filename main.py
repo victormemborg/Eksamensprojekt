@@ -64,17 +64,16 @@ def cancer():
     return render_template("skema.html")
 
 #Laver en /predict route, som poster de informationer, som er blevet indtastet af brugeren.
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["GET", "POST"])
 def predict():
-
-    int_features = [int(x) for x in request.form.values()]
-    print(int_features)
-    final_features = [np.array(int_features)]
+    raw_features = request.form['userinput']
+    print(raw_features)
+    final_features = [np.array(raw_features.split(","))]
     print(final_features)
+    #final_features = [np.array(int_features)]
+    #print(final_features)
     prediction = model.predict(final_features)
-
     output = prediction[0]
-
     risiko = ["Nej", "Ja"]
 
 #Laver en text, som giver den sandsynlige løn.

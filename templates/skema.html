@@ -15,17 +15,18 @@
     		<div class='button' id='next'><a href='#'>Next</a></div>
     		<div class='button' id='prev'><a href='#'>Prev</a></div>
     		<div class='button' id='start'> <a href='#'>Start Over</a></div>
-			<form name ="myForm" method="POST">
-				<var name="userinput" ></var>
-			</form>
+			<div style="display: none;">
+				<form action="/predict" name="myForm" id="myForm" method="POST">
+					<input name="userinput" id="userinput" ></input>
+				</form>
+			</div>
     		<!-- <button class='' id='next'>Next</a></button>
     		<button class='' id='prev'>Prev</a></button>
     		<button class='' id='start'> Start Over</a></button> -->
+			<h1 id="predict_text">{{ prediction_text }}</h1>
     	</div>
 
-		<div id="test"><h1>user input</h1></div>
-
 		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-		<script type='text/javascript' src='jsquiz.js'></script>
+		<script type='text/javascript' src='static\js\jsquiz.js'></script>
 	</body>
 </html>

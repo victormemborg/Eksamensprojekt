@@ -39,6 +39,7 @@
         alert('Please make a selection!');
       } else {
         questionCounter++;
+        document.getElementById("predict_text").innerHTML = " ";
         displayNext();
       }
     });
@@ -64,8 +65,8 @@
       }
       questionCounter = 0;
       selections = [];
+      document.getElementById("predict_text").innerHTML = " ";
       displayNext();
-      $('#start').hide();
     });
     
     // Animates buttons on hover
@@ -113,7 +114,6 @@
     // Reads the user selection and pushes the value to an array
     function choose() {
       selections[questionCounter] = +$('input[name="answer"]:checked').val();
-      document.getElementById("test").innerHTML = selections
     }
     
     // Displays next requested element
@@ -137,7 +137,8 @@
             $('#next').show();
           }
         }else {
-          document.getElementById("nameofid").value = "My value";
+          document.getElementById("userinput").value = selections;
+          document.getElementById("myForm").submit();
           $('#next').hide();
           $('#prev').hide();
           $('#start').show();
