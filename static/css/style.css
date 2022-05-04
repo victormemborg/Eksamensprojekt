@@ -182,4 +182,26 @@ body {
 	text-align: center;
 }
 
+/* Genkender */
 
+.label_for_upload{
+	position: inherit;
+	display: inline-block;
+	vertical-align: super;
+	cursor: pointer;
+	width:200px;
+	height:40px;
+	background-color: #FFFFFF;
+	border: 2px solid #000000;
+	border-bottom: 5px solid #000000;
+	font-family: 'Futura';
+	font-size:1.2em;
+	color: #000000;
+	letter-spacing:1px;
+	margin-top:15px;
+	transition: 1s;
+}
+
+.label_for_upload:hover{
+	background-color:#ff0000;
+}
