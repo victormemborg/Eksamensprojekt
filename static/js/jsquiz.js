@@ -84,7 +84,7 @@
         id: 'question'
       });
       
-      var header = $('<h2 style="text-align: center;">Question ' + (index + 1) + ':</h2>');
+      var header = $('<h2 style="text-align: center;">Spørgsmål ' + (index + 1) + '/5:</h2>');
       qElement.append(header);
       
       var question = $('<p style="text-align: center;">').append(questions[index].question);
