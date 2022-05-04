@@ -1,58 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Lægehuset | Hjertesygdomme</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="icon" href="../static/img/favicon.png">
-  </head>
-  <body>
-    <section class="container">
-      <h1>Beregn din chance for hjertesygdomme</h1>
-      <h3>Udfyld felterne forneden og tryk på knappen.</h3>
-      <div class="grid">
-        <div class="box">
-          <form action="{{ url_for('predict')}}" method="post">
-            <select name="Ryger" id="Ryger" required="required">
-              <option value="">Ryger du?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Alkohol" id="Alkohol" required="required">
-              <option value="">Drikker du meget alkohol?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Stroke" id="Stroke" required="required">
-              <option value="">Har du haft en stroke før?</option>
-              <option value="0">Nej</option>
-              <option value="1">Ja</option>
-            </select>
-            <select name="Køn" id="Køn" required="required">
-              <option value="">Køn</option>
-              <option value="0">Kvinde</option>
-              <option value="1">Mand</option>
-            </select>
-            <select name="Aldersgruppe" id="Aldersgruppe" required="required">
-              <option value="">Aldersgruppe (år)</option>
-              <option value="12">80 eller ældre</option>
-              <option value="11">75-79</option>
-              <option value="10">70-74</option>
-              <option value="9">65-69</option>
-              <option value="8">60-64</option>
-              <option value="7">55-59</option>
-              <option value="6">50-54</option>
-              <option value="5">45-49</option>
-              <option value="4">40-44</option>
-              <option value="3">35-39</option>
-              <option value="2">30-34</option>
-              <option value="1">25-29</option>
-              <option value="0">18-24</option>
-            </select>
-            <button type="submit" class="btn">Udregn løn</button>
-          </form>
-          <p>{{ prediction_text }}</p>
-        </div>
-      </div>
-  </body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Lægehuset.dk | Blodprop</title>
+		<link href="../static/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<!-- nav bar start -->
+		<nav class="navbar">
+			<div class="navlogo">Lægehuset.dk</div>
+			<a href="/" class="ham">
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</a>
+			<!-- The nav links part -->
+			<div class="navlinks">
+				<ul>
+					<li><a href="/">Hjem</a></li>
+					<li><a href="/cancer">Leukæmi</a></li>
+				</ul>
+			</div>
+		</nav>
+		<!-- nav bar slut -->
+		<!-- content start-->
+		<div class='box3'>
+			<div id='container'>
+				<div style='text-align: center;'>
+					<h1>Bestem om du er i risikozonen for en blodprop</h1>
+				</div>
+				<div class='box4'>
+					<div id='quiz'></div>
+				</div>
+				<div class='box5'>
+					<button class='button button_colour' id='next'><a href='#'>Næste</a></button>
+					<button class='button button_colour' id='prev'><a href='#'>Tilbage</a></button>
+					<button class='button button_colour' id='start'> <a href='#'>Start Forfra</a></button>
+				</div>
+				<div style="display: none;">
+					<form action="/predict" name="myForm" id="myForm" method="POST">
+						<input name="userinput" id="userinput" ></input>
+					</form>
+				</div>
+				<h1 id="predict_text" style="text-align: center;">{{ prediction_text }}</h1>
+			</div>
+		</div>
+		<!-- content slut-->
+		<!-- scipts -->
+		<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+		<script type='text/javascript' src='static\js\jsquiz.js'></script>
+	</body>
 </html>
