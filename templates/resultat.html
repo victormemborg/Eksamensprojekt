@@ -3,25 +3,35 @@
   <head>
     <meta charset="UTF-8">
     <title>Lægehuset | Resultat klar</title>
-    <link rel="stylesheet" href="../static/css/startside.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon" href="../static/img/favicon.png">
   </head>
-  <style>
-    body{
-      background-image: url('../static/img/forside.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  </style>
-    <body>
-    <div class="box">
-      <h1>Resultaterne er nu klar.</h1>
-      <h3>Jo højere procent, desto større match.</h3>
-      <body>
-        <p>Start: {{ start }}%</p>
-        <p>I udbrud: {{ udbrud }}%</p>
-        <p>Før behandling: {{ prebe }}%</p>
-        <p>Efter behandling: {{ probe }}%</p>
+  <body>
+    <!-- nav bar start -->
+    <nav class="navbar">
+      <div class="navlogo">Lægehuset.dk</div>
+      <a href="/" class="ham">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <!-- The nav links part -->
+      <div class="navlinks">
+        <ul>
+          <li><a href="/">Hjem</a></li>
+          <li><a href="/model">Blodprop</a></li>
+          <li><a href="/cancer">Leukæmi</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- nav bar slut -->
+    <div class="box2" style="height: 325px;">
+      <h1 style ="text-align: center;">Resultaterne er nu klar.</h1>
+      <h3 style ="text-align: center;">Jo højere procent, desto større match.</h3>
+      <p style ="text-align: center;">Start: {{ start }}%</p>
+      <p style ="text-align: center;">I udbrud: {{ udbrud }}%</p>
+      <p style ="text-align: center;">Før behandling: {{ prebe }}%</p>
+      <p style ="text-align: center;">Efter behandling: {{ probe }}%</p>
     </div>
-    </body>
+  </body>
 </html>
