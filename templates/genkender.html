@@ -18,7 +18,7 @@
       <div class="navlinks">
         <ul>
           <li><a href="/">Hjem</a></li>
-          <li><a href="/cancer">Leukæmi</a></li>
+          <li><a href="/model">Blodprop</a></li>
         </ul>
       </div>
     </nav>
@@ -29,15 +29,19 @@
       <h5 style="text-align: center;">1. Vælg den billedefil, der skal analyseres af modellen</h5>
       <h5 style="text-align: center;">2. Videresend din fil ved brug af knappen</h5>
       <h5 style="text-align: center;">3. Få dit resultat</h5>
-      <br><br>
+      <br>
       <div class ="box5">
         <form action = "http://localhost:5000/uploader" method ="POST" enctype = "multipart/form-data">
           <input style="display: none;" type="file" id="myFile" name="filename[]">
-          <label class="label_for_upload" for="myFile" class="upload">Upload fil</label>
-          <input class="button button_colour" type="submit"> 
+          <label class="label_for_upload" for="myFile"><div class="label_text" id="upload_text">Upload fil</div></label>
+          <br>
+          <input style="display: none;" type="submit" id="mySubmit">
+          <label class="label_for_upload" for="mySubmit">Send</label>
         </form> 
       </div>
     </div>
     <!-- content slut -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script type='text/javascript' src='static\js\upload_handle.js'></script>
   </body>
 </html>
