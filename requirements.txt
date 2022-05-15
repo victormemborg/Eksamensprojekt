@@ -2,3 +2,5 @@ scikit-learn
 pandas
 numpy
 flask
+missingno
+pickle
